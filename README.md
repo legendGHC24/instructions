@@ -1,1 +1,1 @@
-# .github
+# Getting started
