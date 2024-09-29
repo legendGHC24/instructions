@@ -9,7 +9,7 @@ Class model::simepleCO2
 
 
 ###Relational
-Database local::DuckDuckDatabase
+Database local::DuckDuckDatabaseGHC
 (
   Table macTestCO2
   (
@@ -28,31 +28,31 @@ Mapping local::simpleCO2Mapping
   {
     ~primaryKey
     (
-      [local::DuckDuckDatabase]macTestCO2.year,
-      [local::DuckDuckDatabase]macTestCO2.country
+      [local::DuckDuckDatabaseGHC]macTestCO2.year,
+      [local::DuckDuckDatabaseGHC]macTestCO2.country
     )
-    ~mainTable [local::DuckDuckDatabase]macTestCO2
-    country: [local::DuckDuckDatabase]macTestCO2.country,
-    year: [local::DuckDuckDatabase]macTestCO2.year,
-    iso_code: [local::DuckDuckDatabase]macTestCO2.iso_code,
-    population: [local::DuckDuckDatabase]macTestCO2.population
+    ~mainTable [local::DuckDuckDatabaseGHC]macTestCO2
+    country: [local::DuckDuckDatabaseGHC]macTestCO2.country,
+    year: [local::DuckDuckDatabaseGHC]macTestCO2.year,
+    iso_code: [local::DuckDuckDatabaseGHC]macTestCO2.iso_code,
+    population: [local::DuckDuckDatabaseGHC]macTestCO2.population
   }
 )
 
 
 ###Connection
-RelationalDatabaseConnection local::DuckDuckConnection
+RelationalDatabaseConnection local::DuckDuckConnectionGHC
 {
   type: DuckDB;
   specification: DuckDB
   {
-    path: 'H:/dev-jiyuan-ghc/legend-copilot-guide/ghc/mactest';
+    path: 'mactest';
   };
   auth: Test;
 }
 
 ###Runtime
-Runtime local::DuckDuckRuntime
+Runtime local::DuckDuckRuntimeGHC
 {
   mappings:
   [
@@ -60,9 +60,9 @@ Runtime local::DuckDuckRuntime
   ];
   connections:
   [
-    local::DuckDuckDatabase:
+    local::DuckDuckDatabaseGHC:
     [
-      connection: local::DuckDuckConnection
+      connection: local::DuckDuckConnectionGHC
     ]
   ];
 }
@@ -72,9 +72,9 @@ Runtime local::DuckDuckRuntime
 ###Pure
 function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
 {
-  model::simepleCO2.all()->project([x|$x.country],['country'])
+  model::simepleCO2.all()->project([x|$x.country, x|$x.population, x|$x.year],['country','population','year'])
     ->from(
         local::simpleCO2Mapping,
-        local::DuckDuckRuntime
+        local::DuckDuckRuntimeGHC
     )
 }
