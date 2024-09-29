@@ -1,10 +1,11 @@
 ###Pure
-Class model::simepleCO2
+Class model::simpleCO2
 {
     country: String[1];
     year: Integer[1];
     iso_code: String[1];
     population: Integer[1];
+    co2_growth_prct: Float[1]; // Added new attribute
 }
 
 
@@ -16,26 +17,26 @@ Database local::DuckDuckDatabaseGHC
       country VARCHAR(0),
       year BIGINT,
       iso_code VARCHAR(0),
-      population BIGINT
+      population BIGINT,
+      co2_growth_prct FLOAT // Added new column
   )
 )
 
-
 ###Mapping
-Mapping local::simpleCO2Mapping
+Mapping model::simpleCO2Mapping
 (
-  model::simepleCO2: Relational
+  *model::simpleCO2: Relational
   {
     ~primaryKey
     (
-      [local::DuckDuckDatabaseGHC]macTestCO2.year,
-      [local::DuckDuckDatabaseGHC]macTestCO2.country
+      [local::DuckDuckDatabaseGHC]macTestCO2.country,
+      [local::DuckDuckDatabaseGHC]macTestCO2.year
     )
-    ~mainTable [local::DuckDuckDatabaseGHC]macTestCO2
     country: [local::DuckDuckDatabaseGHC]macTestCO2.country,
     year: [local::DuckDuckDatabaseGHC]macTestCO2.year,
     iso_code: [local::DuckDuckDatabaseGHC]macTestCO2.iso_code,
-    population: [local::DuckDuckDatabaseGHC]macTestCO2.population
+    population: [local::DuckDuckDatabaseGHC]macTestCO2.population,
+    co2_growth_prct: [local::DuckDuckDatabaseGHC]macTestCO2.co2_growth_prct // Mapped new column
   }
 )
 
@@ -56,7 +57,7 @@ Runtime local::DuckDuckRuntimeGHC
 {
   mappings:
   [
-    local::simpleCO2Mapping
+    model::simpleCO2Mapping
   ];
   connections:
   [
@@ -72,9 +73,40 @@ Runtime local::DuckDuckRuntimeGHC
 ###Pure
 function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
 {
-  model::simepleCO2.all()->project([x|$x.country, x|$x.population, x|$x.year],['country','population','year'])
-    ->from(
-        local::simpleCO2Mapping,
-        local::DuckDuckRuntimeGHC
-    )
+  model::simpleCO2.all()->project(
+    [
+      x | $x.country, 
+      x | $x.population, 
+      x | $x.year, 
+      x | $x.co2_growth_prct // Added new projection
+    ],
+    ['country', 'population', 'year', 'co2_growth_prct'] // Added new column name
+  )
+  ->from(
+    model::simpleCO2Mapping,
+    local::DuckDuckRuntimeGHC
+  )
 }
+
+###Pure
+function model::GetOwidco2CountryCO2Nameduck(): meta::pure::tds::TabularDataSet[1]
+{
+  model::simpleCO2.all()
+  ->filter(x | $x.year > 1990) // Added filter condition
+  ->project(
+    [
+      x | $x.country, 
+      x | $x.population, 
+      x | $x.year, 
+      x | $x.co2_growth_prct // Added new projection
+    ],
+    ['country', 'population', 'year', 'co2_growth_prct'] // Added new column name
+  )
+  ->from(
+    model::simpleCO2Mapping,
+    local::DuckDuckRuntimeGHC
+  )
+}
+
+
+<Data> <Data Model> <SQL>
