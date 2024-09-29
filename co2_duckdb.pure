@@ -1,0 +1,80 @@
+###Pure
+Class model::simepleCO2
+{
+    country: String[1];
+    year: Integer[1];
+    iso_code: String[1];
+    population: Integer[1];
+}
+
+
+###Relational
+Database local::DuckDuckDatabase
+(
+  Table macTestCO2
+  (
+      country VARCHAR(0),
+      year BIGINT,
+      iso_code VARCHAR(0),
+      population BIGINT
+  )
+)
+
+
+###Mapping
+Mapping local::simpleCO2Mapping
+(
+  model::simepleCO2: Relational
+  {
+    ~primaryKey
+    (
+      [local::DuckDuckDatabase]macTestCO2.year,
+      [local::DuckDuckDatabase]macTestCO2.country
+    )
+    ~mainTable [local::DuckDuckDatabase]macTestCO2
+    country: [local::DuckDuckDatabase]macTestCO2.country,
+    year: [local::DuckDuckDatabase]macTestCO2.year,
+    iso_code: [local::DuckDuckDatabase]macTestCO2.iso_code,
+    population: [local::DuckDuckDatabase]macTestCO2.population
+  }
+)
+
+
+###Connection
+RelationalDatabaseConnection local::DuckDuckConnection
+{
+  type: DuckDB;
+  specification: DuckDB
+  {
+    path: 'H:/dev-jiyuan-ghc/legend-copilot-guide/ghc/mactest';
+  };
+  auth: Test;
+}
+
+###Runtime
+Runtime local::DuckDuckRuntime
+{
+  mappings:
+  [
+    local::simpleCO2Mapping
+  ];
+  connections:
+  [
+    local::DuckDuckDatabase:
+    [
+      connection: local::DuckDuckConnection
+    ]
+  ];
+}
+
+
+
+###Pure
+function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
+{
+  model::simepleCO2.all()->project([x|$x.country],['country'])
+    ->from(
+        local::simpleCO2Mapping,
+        local::DuckDuckRuntime
+    )
+}
