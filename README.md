@@ -5,7 +5,7 @@
 Attendees of the workshop can either listen in to this workshop, OR follow through the steps. We recommend following through the steps before joining the session and sharing your github handle with us beforehand (Setup Step#1) for the best workshop experience.
 
 # Setup
-1. Get copilot access - Add your github handle to this page:
+1. Get copilot access - Add your github handle to this page: https://docs.google.com/spreadsheets/d/1QqDxL9qk7N_aGFwiMALmyB7PiKMBS3_ZtNNfv4yaKHk/edit?usp=sharing
 2. Get VSCode - https://code.visualstudio.com/download
    For Mac - Go to About this mac - check your chip. For me, it was Apple Chip and I downloaded .zip in a new folder called "legendghc24". Double clicked to finally get VSCode started.   
 3. Go to Extensions in VSCode, search and install following:
