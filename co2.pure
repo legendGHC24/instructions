@@ -1,5 +1,5 @@
 ###Pure
-Class model::simpleCO2
+Class model::country
 {
     country: String[1];
     year: Integer[1];
@@ -23,7 +23,7 @@ Database local::DuckDuckDatabaseGHC
 ###Mapping
 Mapping model::simpleCO2Mapping
 (
-  *model::simpleCO2: Relational
+  *model::country: Relational
   {
     ~primaryKey
     (
@@ -70,7 +70,7 @@ Runtime local::DuckDuckRuntimeGHC
 ###Pure
 function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
 {
-  model::simpleCO2.all()->project(
+  model::country.all()->project(
     [
       x | $x.country, 
       x | $x.population, 
