@@ -11,7 +11,7 @@ Class model::simpleCO2
 ###Relational
 Database local::DuckDuckDatabaseGHC
 (
-  Table macTestCO2
+  Table co2
   (
       country VARCHAR(0),
       year BIGINT,
@@ -27,13 +27,13 @@ Mapping model::simpleCO2Mapping
   {
     ~primaryKey
     (
-      [local::DuckDuckDatabaseGHC]macTestCO2.country,
-      [local::DuckDuckDatabaseGHC]macTestCO2.year
+      [local::DuckDuckDatabaseGHC]co2.country,
+      [local::DuckDuckDatabaseGHC]co2.year
     )
-    country: [local::DuckDuckDatabaseGHC]macTestCO2.country,
-    year: [local::DuckDuckDatabaseGHC]macTestCO2.year,
-    iso_code: [local::DuckDuckDatabaseGHC]macTestCO2.iso_code,
-    population: [local::DuckDuckDatabaseGHC]macTestCO2.population
+    country: [local::DuckDuckDatabaseGHC]co2.country,
+    year: [local::DuckDuckDatabaseGHC]co2.year,
+    iso_code: [local::DuckDuckDatabaseGHC]co2.iso_code,
+    population: [local::DuckDuckDatabaseGHC]co2.population
   }
 )
 
@@ -44,7 +44,7 @@ RelationalDatabaseConnection local::DuckDuckConnectionGHC
   type: DuckDB;
   specification: DuckDB
   {
-    path: 'mactest';
+    path: 'co2-duckdb';
   };
   auth: Test;
 }
