@@ -29,7 +29,7 @@ Database local::DuckDuckDatabaseGHC
 ###Mapping
 Mapping model::simpleCO2Mapping
 (
-  *model::country: Relational
+  *model::co2: Relational
   {
     ~primaryKey
     (
