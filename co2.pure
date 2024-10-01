@@ -1,10 +1,13 @@
 ###Pure
-Class model::country
+Class model::co2
 {
     country: String[1];
     year: Integer[1];
     iso_code: String[1];
     population: Integer[1];
+    co2: Float[1];
+    co2_growth_abs: Float[1];
+    co2_growth_prct: Float[1];
 }
 
 
@@ -16,7 +19,10 @@ Database local::DuckDuckDatabaseGHC
       country VARCHAR(0),
       year BIGINT,
       iso_code VARCHAR(0),
-      population BIGINT
+      population BIGINT,
+      co2 FLOAT, 
+      co2_growth_abs FLOAT,
+      co2_growth_prct FLOAT
   )
 )
 
@@ -33,7 +39,10 @@ Mapping model::simpleCO2Mapping
     country: [local::DuckDuckDatabaseGHC]co2.country,
     year: [local::DuckDuckDatabaseGHC]co2.year,
     iso_code: [local::DuckDuckDatabaseGHC]co2.iso_code,
-    population: [local::DuckDuckDatabaseGHC]co2.population
+    population: [local::DuckDuckDatabaseGHC]co2.population,
+    co2: [local::DuckDuckDatabaseGHC]co2.co2,
+    co2_growth_abs: [local::DuckDuckDatabaseGHC]co2.co2_growth_abs,
+    co2_growth_prct: [local::DuckDuckDatabaseGHC]co2.co2_growth_prct
   }
 )
 
@@ -70,13 +79,14 @@ Runtime local::DuckDuckRuntimeGHC
 ###Pure
 function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
 {
-  model::country.all()->project(
+  model::co2.all()->project(
     [
       x | $x.country, 
       x | $x.population, 
-      x | $x.year
+      x | $x.year, 
+      x | $x.co2
     ],
-    ['country', 'population', 'year']
+    ['country', 'population', 'year', 'co2']
   )
   ->from(
     model::simpleCO2Mapping,
