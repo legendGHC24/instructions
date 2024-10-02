@@ -23,7 +23,7 @@
 2. Understand the data ([source](https://github.com/owid/co2-data))
    1. `owid-co2-data.csv`: Complete data on CO2 and Greenhouse Gas Emissions by Our World in Data.
    2. `owid-co2-codebook.csv`: A description and source for each column in the data.
-3. Model and query CO2 data
+3. Basic data modeling
    1. Start with `co2.pure` and Class `co2`
    2. Think of a property you would like to query.
    3. Modify the co2 class to include more properties, take the help of GitHub Copilot.
