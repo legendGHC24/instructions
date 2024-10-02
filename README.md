@@ -15,7 +15,9 @@ https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256)
       Make sure you have Java version >= 17 installed. If not, go [here] https://www.oracle.com/java/technologies/downloads/ and download.
       For Windows, choose x64 Installer	153.92 MB	
                      https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256), Restart your vscode after installation is done
-      Maven Installation - https://maven.apache.org/download.cgi 
+      Maven Download - https://maven.apache.org/download.cgi
+      Download Binary zip archive	apache-maven-3.9.9-bin.zip
+      https://maven.apache.org/install.html 
    3. GitHub Copilot
 4. Sign in
    - Use the GitHub handle you provided in Step 1. Once signed in, you will automatically get access to copilot via organization `legendGHC24`.
