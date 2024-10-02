@@ -17,6 +17,7 @@ https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256)
                      https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256), Restart your vscode after installation is done
       Maven Download - https://maven.apache.org/download.cgi
       Download Binary zip archive	apache-maven-3.9.9-bin.zip
+      https://code.visualstudio.com/docs/java/java-build 
       https://maven.apache.org/install.html 
    3. GitHub Copilot
 4. Sign in
