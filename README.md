@@ -10,7 +10,7 @@
    - https://code.visualstudio.com/download (For Mac users - Go to `About This Mac` to check the processor and download the suitable one)
 3. Get Extensions 
    1. Legend - Legend Language Support (parse, compile, execute), published by FINOS.
-      Make sure you have Java version > 17 installed. If not, go [here](https://www.java.com/en/download) and download.
+      Make sure you have Java version > 17 installed. If not, go [here] https://www.oracle.com/java/technologies/downloads/ and download.
    2. GitHub Copilot
 4. Sign in
    - Use the GitHub handle you provided in Step 1. Once signed in, you will automatically get access to copilot via organization `legendGHC24`.
