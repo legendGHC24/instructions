@@ -23,7 +23,7 @@ Association model::country_co2Emissions
 
 
 ###Relational
-Database local::DuckDuckDatabaseGHC
+Database local::DuckDuckDatabaseAssociation
 (
  
   Table co2(
@@ -41,38 +41,38 @@ Database local::DuckDuckDatabaseGHC
 
 
 ###Mapping
-Mapping model::simpleCO2Mapping
+Mapping model::associationMapping
 (
   *model::country[cty]: Relational
   {
     ~primaryKey
     (
-      [local::DuckDuckDatabaseGHC]co2.country,
-      [local::DuckDuckDatabaseGHC]co2.year
+      [local::DuckDuckDatabaseAssociation]co2.country,
+      [local::DuckDuckDatabaseAssociation]co2.year
     )
-    country: [local::DuckDuckDatabaseGHC]co2.country,
-    year: [local::DuckDuckDatabaseGHC]co2.year,
-    iso_code: [local::DuckDuckDatabaseGHC]co2.iso_code,
-    population: [local::DuckDuckDatabaseGHC]co2.population
+    country: [local::DuckDuckDatabaseAssociation]co2.country,
+    year: [local::DuckDuckDatabaseAssociation]co2.year,
+    iso_code: [local::DuckDuckDatabaseAssociation]co2.iso_code,
+    population: [local::DuckDuckDatabaseAssociation]co2.population
   }
 
   *model::co2Emissions[ce]: Relational
   {
     ~primaryKey
       (
-        [local::DuckDuckDatabaseGHC]co2.country,
-        [local::DuckDuckDatabaseGHC]co2.year
+        [local::DuckDuckDatabaseAssociation]co2.country,
+        [local::DuckDuckDatabaseAssociation]co2.year
       )
-    co2: [local::DuckDuckDatabaseGHC]co2.co2,
-    co2_growth_abs: [local::DuckDuckDatabaseGHC]co2.co2_growth_abs,
-    co2_growth_prct: [local::DuckDuckDatabaseGHC]co2.co2_growth_prct
+    co2: [local::DuckDuckDatabaseAssociation]co2.co2,
+    co2_growth_abs: [local::DuckDuckDatabaseAssociation]co2.co2_growth_abs,
+    co2_growth_prct: [local::DuckDuckDatabaseAssociation]co2.co2_growth_prct
   }
   model::country_co2Emissions : Relational
    {
       AssociationMapping
       (
-         country[ce,cty] : [local::DuckDuckDatabaseGHC]@co2_SelfJOin, 
-         co2Emissions[cty,ce] : [local::DuckDuckDatabaseGHC]@co2_SelfJOin
+         country[ce,cty] : [local::DuckDuckDatabaseAssociation]@co2_SelfJOin, 
+         co2Emissions[cty,ce] : [local::DuckDuckDatabaseAssociation]@co2_SelfJOin
       )
    }
 
@@ -81,7 +81,7 @@ Mapping model::simpleCO2Mapping
 
 
 ###Connection
-RelationalDatabaseConnection local::DuckDuckConnectionGHC
+RelationalDatabaseConnection local::DuckDuckConnectionAssociation
 {
   type: DuckDB;
   specification: DuckDB
@@ -94,17 +94,17 @@ RelationalDatabaseConnection local::DuckDuckConnectionGHC
 
 
 ###Runtime
-Runtime local::DuckDuckRuntimeGHC
+Runtime local::DuckDuckRuntimeAssociation
 {
   mappings:
   [
-    model::simpleCO2Mapping
+    model::associationMapping
   ];
   connections:
   [
-    local::DuckDuckDatabaseGHC:
+    local::DuckDuckDatabaseAssociation:
     [
-      connection: local::DuckDuckConnectionGHC
+      connection: local::DuckDuckConnectionAssociation
     ]
   ];
 }
@@ -112,7 +112,7 @@ Runtime local::DuckDuckRuntimeGHC
 
 
 ###Pure
-function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
+function model::GetOwidco2SimpleQuery(): meta::pure::tds::TabularDataSet[1]
 {
   model::country.all()->project(
     [
@@ -123,8 +123,8 @@ function model::GetOwidco2CountryNameduck(): meta::pure::tds::TabularDataSet[1]
     ['country', 'population', 'year']
   )
   ->from(
-    model::simpleCO2Mapping,
-    local::DuckDuckRuntimeGHC
+    model::associationMapping,
+    local::DuckDuckRuntimeAssociation
   )
 }
 
@@ -140,8 +140,8 @@ function model::GetOwidco2uck(): meta::pure::tds::TabularDataSet[1]
     ['co2']
   )
   ->from(
-    model::simpleCO2Mapping,
-    local::DuckDuckRuntimeGHC
+    model::associationMapping,
+    local::DuckDuckRuntimeAssociation
   )
 }
 
@@ -155,7 +155,7 @@ function model::GetCo2ForCountryAFG2016(): meta::pure::tds::TabularDataSet[1]
   ->filter(x | ($x.country.iso_code == 'AFG') && ($x.country.year == '2016'))
   ->project([x | $x.co2], ['co2'])
   ->from(
-        model::simpleCO2Mapping,
-    local::DuckDuckRuntimeGHC
+      model::associationMapping,
+      local::DuckDuckRuntimeAssociation
     )
 }
