@@ -8,10 +8,14 @@
    - Add your GitHub handle to this [Google Sheet](https://docs.google.com/spreadsheets/d/1QqDxL9qk7N_aGFwiMALmyB7PiKMBS3_ZtNNfv4yaKHk/edit?usp=sharing)
 2. Get Visual Studio Code
    - https://code.visualstudio.com/download (For Mac users - Go to `About This Mac` to check the processor and download the suitable one)
+   - x64 Installer	153.92 MB	
+https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256)
 3. Get Extensions 
    1. Legend - Legend Language Support (parse, compile, execute), published by FINOS.
-      Make sure you have Java version > 17 installed. If not, go [here] https://www.oracle.com/java/technologies/downloads/ and download.
-   2. GitHub Copilot
+      Make sure you have Java version >= 17 installed. If not, go [here] https://www.oracle.com/java/technologies/downloads/ and download.
+      For Windows, choose x64 Installer	153.92 MB	
+                     https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe ( sha256), Restart your vscode after installation is done
+   3. GitHub Copilot
 4. Sign in
    - Use the GitHub handle you provided in Step 1. Once signed in, you will automatically get access to copilot via organization `legendGHC24`.
 5. Clone repo
