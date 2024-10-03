@@ -45,7 +45,9 @@
          - ![6 - Existing Env Variables](https://github.com/user-attachments/assets/97dacf1a-60fb-4bfe-8152-89fc65212740)
          - ![7 - Editing Path](https://github.com/user-attachments/assets/b254bb8c-6b1f-46d1-ab71-009fbeb2c629)
 
-5. Get Extensions 
+5. Get Extensions
+   Open Visual Studio Code, click `extensions` icon <img width="39" alt="icon" src="https://github.com/user-attachments/assets/9b07ef8f-1e0b-41b5-84b8-f846af64c0ae">
+ Search for the following two, 
    1. Legend - Legend Language Support (parse, compile, execute), published by FINOS.
       - <img width="449" alt="Screen Shot 2024-10-03 at 1 55 20 PM" src="https://github.com/user-attachments/assets/e3242256-3336-4a1f-806f-c98f7145f25b">
       
@@ -54,7 +56,7 @@
       - GitHub Copilot Chat will be automatically installed together
         - <img width="547" alt="copilot-chat" src="https://github.com/user-attachments/assets/f2060a7a-2165-4faa-bef8-d5f460064046">
 
-6. Check if Legend Extension works
+7. Check if Legend Extension works
    - Check `output` panel
    - <img width="1174" alt="output" src="https://github.com/user-attachments/assets/bbd99ad3-12bb-4fb1-b951-1cc47f73d381">
    - Open `co2.pure`, code text color should change
