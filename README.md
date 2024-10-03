@@ -39,12 +39,21 @@
           }
           ```
       - Windows User
-         - 
-          
+         - Add the full path to the `bin` folder to the environment variable
+         - ![4 - Searching for System Env Vars](https://github.com/user-attachments/assets/bd76489e-6049-43e0-a78a-3ba8d39b7994)
+         - ![5 - System Properties](https://github.com/user-attachments/assets/59dea08d-db83-47c1-a7ce-9433a03c2624)
+         - ![6 - Existing Env Variables](https://github.com/user-attachments/assets/97dacf1a-60fb-4bfe-8152-89fc65212740)
+         - ![7 - Editing Path](https://github.com/user-attachments/assets/b254bb8c-6b1f-46d1-ab71-009fbeb2c629)
+
 5. Get Extensions 
    1. Legend - Legend Language Support (parse, compile, execute), published by FINOS.
+      - <img width="449" alt="Screen Shot 2024-10-03 at 1 55 20 PM" src="https://github.com/user-attachments/assets/e3242256-3336-4a1f-806f-c98f7145f25b">
+      
    2. GitHub Copilot
+      - <img width="536" alt="copilot" src="https://github.com/user-attachments/assets/f32d1fc2-695d-4a63-bbc1-d4f1b403ef0a">
       - GitHub Copilot Chat will be automatically installed together
+        - <img width="547" alt="copilot-chat" src="https://github.com/user-attachments/assets/f2060a7a-2165-4faa-bef8-d5f460064046">
+
 6. Check if Legend Extension works
    - Check `output` panel
    - <img width="1174" alt="output" src="https://github.com/user-attachments/assets/bbd99ad3-12bb-4fb1-b951-1cc47f73d381">
