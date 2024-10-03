@@ -1,19 +1,20 @@
 > [!NOTE]
 > Welcome and thanks for joining us!
 > 
-> Attendees can either listen to this workshop OR follow through the steps. We recommend following through the steps before joining the session and sharing your github handle with us beforehand (Setup Step#1) for the best workshop experience.
+> Attendees can either listen to this workshop OR follow through the steps. We recommend following through the steps before joining the session and sharing your github handle with us beforehand for the best workshop experience.
 
 # Setup
 1. Get copilot access
    - Add your GitHub handle to this [Google Sheet](https://docs.google.com/spreadsheets/d/1QqDxL9qk7N_aGFwiMALmyB7PiKMBS3_ZtNNfv4yaKHk/edit?usp=sharing)
 2. Get Visual Studio Code
-   - https://code.visualstudio.com/download (For Mac users - Go to `About This Mac` to check the processor and download the suitable one)
+   - https://code.visualstudio.com/download
+   - For Mac users - Go to `About This Mac` to check the processor and download the suitable one
 3. Java
-   - Check Java version, open a terminal, and execute cmd `java -version`. If you have Java version >=17, you can skip step 5 directly.  
+   - Check Java version, open a terminal, and execute cmd `java -version`. If you have Java version >=17, you can jump to Step 5 directly.  
    - Donwload Java 17 Installer
      - Mac User: https://www.oracle.com/ca-en/java/technologies/downloads/#jdk23-mac, download `x64 DMG Installer` or `M64 DMG Installer` depends on the processor.
      - Windows User: https://www.oracle.com/ca-en/java/technologies/downloads/#jdk23-windows, download `x64 Installer`
-   - Follow the prompt, and install Java
+   - Follow the prompt wizard, and install Java
 4. Maven
    - Download Maven 3.9.9
       - Regardless of whether you are a Mac or Windows user, download the `Binary zip archive` from https://maven.apache.org/download.cgi#files
@@ -56,7 +57,7 @@
       - GitHub Copilot Chat will be automatically installed together
         - <img width="547" alt="copilot-chat" src="https://github.com/user-attachments/assets/f2060a7a-2165-4faa-bef8-d5f460064046">
 
-7. Check if Legend Extension works
+6. Check if Legend Extension works
    - Check `output` panel
    - <img width="1174" alt="output" src="https://github.com/user-attachments/assets/bbd99ad3-12bb-4fb1-b951-1cc47f73d381">
    - Open `co2.pure`, code text color should change
@@ -65,9 +66,9 @@
    - <img width="737" alt="execute" src="https://github.com/user-attachments/assets/e3b66773-b557-4578-9ea9-9864b924b505">
    - If you see the result, then all set! Congratulations!
 
-8. Sign in
+7. Sign in
    - Use the GitHub handle you provided in Step 1. Once signed in, you will automatically get access to copilot via organization `legendGHC24`.
-9. Clone repo
+8. Clone repo
    - Create a new folder `legendghc24` and clone this repository `git clone https://github.com/legendGHC24/instructions.git` or directly download the zip folder.
    
 
