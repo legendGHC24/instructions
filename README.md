@@ -7,7 +7,7 @@
 1. Get copilot access
    - Add your GitHub handle to this [Google Sheet](https://docs.google.com/spreadsheets/d/1QqDxL9qk7N_aGFwiMALmyB7PiKMBS3_ZtNNfv4yaKHk/edit?usp=sharing)
 2. Java
-   - Check Java version, open a terminal, and execute cmd `java -version`. If you have Java version >=17, you can jump to Step 5 directly.  
+   - Check Java version, open a terminal, and execute cmd `java -version`. If you have Java version >=17, you can jump to Step 3 directly.  
    - Donwload Java 17 Installer
      - Mac User: https://www.oracle.com/ca-en/java/technologies/downloads/#jdk23-mac, download `x64 DMG Installer` or `M64 DMG Installer` depends on the processor.
      - Windows User: https://www.oracle.com/ca-en/java/technologies/downloads/#jdk23-windows, download `x64 Installer`
@@ -17,7 +17,7 @@
       - Regardless of whether you are a Mac or Windows user, download the `Binary zip archive` from https://maven.apache.org/download.cgi#files
       - Unzip the archive, and copy the full path to the bin folder 
         - Example: /Users/yuan/apache-maven-3.9.9/bin
-      - Mac User
+      - **Mac User**
         - a. Open Terminal, execute `env`, and find the environment variable `PATH` value. 
           - Example:  PATH=/Users/yuan/anaconda3/bin
         - b. Now add the full path to the Maven bin folder to the existing `PATH` value, and use `:` to separate paths. 
@@ -36,7 +36,7 @@
                 "PATH": "/Users/yuan/anaconda3/bin:/Users/yuan/apache-maven-3.9.9/bin"
           }
           ```
-      - Windows User
+      - **Windows User**
          - Add the full path to the `bin` folder to the environment variable
          - ![4 - Searching for System Env Vars](https://github.com/user-attachments/assets/bd76489e-6049-43e0-a78a-3ba8d39b7994)
          - ![5 - System Properties](https://github.com/user-attachments/assets/59dea08d-db83-47c1-a7ce-9433a03c2624)
