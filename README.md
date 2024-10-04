@@ -85,4 +85,4 @@
    2. Think of a class you would like to add,
    3. Add the new class and new association, take the help of GitHub Copilot.
    4. Create query function to fetch the more data.
-5. Wrap-Up and Connclusion
+5. Wrap-Up and Conclusion
